@@ -71,6 +71,7 @@ header h1 {
 
 .character-card {
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   background: var(--card-bg);
   border-radius: var(--border-radius);
@@ -78,6 +79,24 @@ header h1 {
   padding: 2rem;
   align-items: flex-start;
   margin-bottom: 2rem;
+  position: relative;
+  flex-direction: row;
+}
+
+.info-section-header {
+  position: absolute;
+  top: 1.1rem;
+  left: 2rem;
+  color: var(--accent-light);
+  font-size: 1.12rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+.character-image {
+  margin-top: 2.2rem;
 }
 
 .character-image img {
@@ -95,6 +114,7 @@ header h1 {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin-top: 2.2rem;
 }
 
 .info-row {
@@ -118,6 +138,38 @@ header h1 {
   padding: 0.1em 0.4em;
   border-radius: 6px;
   font-style: italic;
+}
+
+/* Goals & Motivation Section */
+.goals-section {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem 2rem 2rem 2rem;
+  margin-bottom: 2rem;
+}
+.goals-section h2 {
+  margin-top: 0;
+  color: var(--accent-light);
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+}
+.goals-subsection h3 {
+  margin-bottom: 0.3em;
+  margin-top: 1.1em;
+  color: var(--accent);
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+.goals-subsection ul {
+  margin: 0;
+  padding-left: 1.25em;
+  color: var(--text);
+  font-size: 1.04rem;
+}
+.goals-subsection ul li {
+  margin-bottom: 0.4em;
+  line-height: 1.5;
 }
 
 .playlist-section {
@@ -197,9 +249,10 @@ body.light .character-image img { background: #e8e8f4; border: 3px solid var(--a
 /* Responsive layout */
 @media (max-width: 800px) {
   .main-container { margin: 1.3rem 0.5rem; }
-  .character-card, .backstory-section, .playlist-section {
+  .character-card, .backstory-section, .playlist-section, .goals-section {
     padding: 1.2rem 1rem 1.5rem 1rem;
   }
+  .info-section-header { left: 1rem; }
 }
 @media (max-width: 600px) {
   .character-card {
@@ -211,4 +264,5 @@ body.light .character-image img { background: #e8e8f4; border: 3px solid var(--a
   .character-image img { width: 100px; height: 130px; }
   .info-row { font-size: 1rem; }
   header h1 { font-size: 1.5rem; }
+  .info-section-header { position: static; margin-bottom: 0.5rem; }
 }

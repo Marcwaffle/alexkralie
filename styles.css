@@ -15,6 +15,10 @@
   --font-mono: 'JetBrains Mono', monospace;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   background: var(--main-bg);
   color: var(--text);
@@ -22,13 +26,15 @@ body {
   margin: 0;
   font-family: var(--font-main);
   padding: 0;
+  transition: background 0.3s, color 0.3s;
 }
 
 .main-container {
-  max-width: 620px;
-  margin: 3rem auto;
+  max-width: 640px;
+  margin: 3rem auto 2rem auto;
   background: transparent;
   box-shadow: none;
+  border-radius: var(--border-radius);
 }
 
 header {
@@ -40,7 +46,7 @@ header {
 }
 
 header h1 {
-  font-size: 2.4rem;
+  font-size: 2.3rem;
   font-weight: 700;
   color: var(--header);
   letter-spacing: 1px;
@@ -54,9 +60,13 @@ header h1 {
   cursor: pointer;
   color: var(--accent-light);
   transition: color 0.2s;
+  border-radius: 50%;
+  padding: 0.4rem 0.5rem;
+  margin-left: 0.6rem;
 }
 #theme-toggle:hover {
   color: var(--accent);
+  background: rgba(255,255,255,0.07);
 }
 
 .character-card {
@@ -88,7 +98,7 @@ header h1 {
 }
 
 .info-row {
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.2rem;
   font-size: 1.10rem;
   line-height: 1.6;
 }
@@ -96,7 +106,7 @@ header h1 {
 .label {
   color: var(--label);
   font-weight: 600;
-  min-width: 130px;
+  min-width: 120px;
   display: inline-block;
   font-size: 1rem;
 }
@@ -129,6 +139,12 @@ header h1 {
   margin-top: 1em;
   text-align: center;
 }
+#spotify-embed iframe {
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.25);
+  min-width: 200px;
+  max-width: 100%;
+}
 
 .backstory-section {
   background: var(--card-bg);
@@ -141,7 +157,7 @@ header h1 {
 .backstory-section h2 {
   margin-top: 0;
   color: var(--accent-light);
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   letter-spacing: 0.5px;
 }
 
@@ -177,8 +193,6 @@ body.light #theme-toggle { color: var(--accent); }
 body.light #theme-toggle:hover { color: var(--accent-light); }
 body.light .quote { background: rgba(196,106,0,0.10); color: var(--quote);}
 body.light .character-image img { background: #e8e8f4; border: 3px solid var(--accent);}
-body.light #play-theme { background: var(--accent); }
-body.light #play-theme:hover { background: var(--accent-light);}
 
 /* Responsive layout */
 @media (max-width: 800px) {

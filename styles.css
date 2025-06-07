@@ -80,19 +80,25 @@ header h1 {
   display: block;
 }
 
-/* Character Info Card */
-.info-section {
-  margin-bottom: 2.5rem;
-}
-.character-card {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+/* Card Base Styles */
+.character-card,
+.goals-card,
+.playlist-card,
+.backstory-card {
   background: var(--card-bg);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   padding: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Character Info Card */
+.character-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
   align-items: flex-start;
+  flex-direction: row;
 }
 
 .character-image img {
@@ -136,14 +142,8 @@ header h1 {
 }
 
 /* Goals & Motivation Card */
-.goals-section {
-  margin-bottom: 2.5rem;
-}
 .goals-card {
-  background: var(--card-bg);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-  padding: 1.5rem 2rem 2rem 2rem;
+  /* already styled by .card base */
 }
 .goals-subsection {
   margin-bottom: 1.3em;
@@ -167,19 +167,9 @@ header h1 {
 }
 
 /* Playlist Card */
-.playlist-section {
-  margin-bottom: 2.5rem;
-}
-.playlist-section .section-title {
-  margin-bottom: 0.8em;
-}
-#spotify-embed {
-  background: var(--card-bg);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-  padding: 1.5rem 1.3rem 1.5rem 1.3rem;
-  margin-top: 0;
+.playlist-card #spotify-embed {
   text-align: center;
+  margin-top: 0.8em;
 }
 #spotify-embed iframe {
   border-radius: 12px;
@@ -189,19 +179,9 @@ header h1 {
 }
 
 /* Backstory Card */
-.backstory-section {
-  margin-bottom: 2.2rem;
-}
-.backstory-section .section-title {
-  margin-bottom: 0.8em;
-}
-#charBackstory {
-  background: var(--card-bg);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-  padding: 1.6rem 2rem 2.3rem 2rem;
+.backstory-card #charBackstory {
   white-space: pre-line;
-  margin-top: 0;
+  margin-top: 0.6rem;
   font-size: 1.09rem;
   line-height: 1.7;
 }
@@ -235,7 +215,7 @@ body.light .character-image img { background: #e8e8f4; border: 3px solid var(--a
 /* Responsive layout */
 @media (max-width: 800px) {
   .main-container { margin: 1.3rem 0.5rem; }
-  .character-card, .goals-card, #spotify-embed, #charBackstory {
+  .character-card, .goals-card, .playlist-card, .backstory-card {
     padding: 1.2rem 1rem 1.5rem 1rem;
   }
 }

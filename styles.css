@@ -92,8 +92,7 @@ header h1 {
   margin-bottom: 2.5rem;
 }
 
-/* Character Info Card */
-.character-card {
+.character-card-content {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
@@ -101,6 +100,7 @@ header h1 {
   flex-direction: row;
 }
 
+/* Character Info Card */
 .character-image img {
   width: 160px;
   height: 210px;
@@ -186,6 +186,7 @@ header h1 {
   line-height: 1.7;
 }
 
+/* Footer */
 footer {
   text-align: center;
   color: var(--label);
@@ -218,13 +219,14 @@ body.light .character-image img { background: #e8e8f4; border: 3px solid var(--a
   .character-card, .goals-card, .playlist-card, .backstory-card {
     padding: 1.2rem 1rem 1.5rem 1rem;
   }
+  .character-card-content { gap: 1rem; }
 }
 @media (max-width: 600px) {
-  .character-card {
+  .character-card-content {
     flex-direction: column;
     align-items: center;
     gap: 1.2rem;
-    padding: 1rem;
+    padding: 0;
   }
   .character-image img { width: 100px; height: 130px; }
   .info-row { font-size: 1rem; }

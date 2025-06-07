@@ -1,57 +1,43 @@
-// Load character JSON
-fetch('alex.json')
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById('charName').textContent = data.name;
-    document.getElementById('profilePic').src = data.profilePic;
-    document.getElementById('profilePic').alt = data.name;
-    document.getElementById('charAge').textContent = data.age;
-    document.getElementById('charPronouns').textContent = data.pronouns;
-    document.getElementById('charAlign').textContent = data.alignment;
-    document.getElementById('charJob').textContent = data.occupation;
-    document.getElementById('charDesc').textContent = data.physicalDescription;
-    document.getElementById('charPersonality').textContent = data.personality;
-    document.getElementById('charQuote').textContent = data.quote;
-    document.getElementById('charFact').textContent = data.funFact;
-    document.getElementById('charBackstory').textContent = data.backstory;
-    document.getElementById('theme-song').src = data.themeSong;
-
-    // Compendium
-    const compDiv = document.getElementById('charCompendium');
-    compDiv.innerHTML = '';
-    data.compendium.forEach(char => {
-      const card = document.createElement('div');
-      card.className = 'character-card';
-      card.innerHTML = `<img src="${char.image}" alt="${char.name}"><span>${char.name}</span>`;
-      compDiv.appendChild(card);
-    });
-  });
-
-// Theme toggling (same as before)
-const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('light');
-  localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
-});
-if (localStorage.getItem('theme') === 'light') {
-  document.body.classList.add('light');
-}
-
-// Play/pause theme song
-let isPlaying = false;
-const playBtn = document.getElementById('play-theme');
-const audio = document.getElementById('theme-song');
-playBtn.addEventListener('click', () => {
-  if (!isPlaying) {
-    audio.play();
-    playBtn.textContent = 'Pause Alex’s Theme';
-  } else {
-    audio.pause();
-    playBtn.textContent = 'Play Alex’s Theme';
-  }
-  isPlaying = !isPlaying;
-});
-audio.addEventListener('ended', () => {
-  playBtn.textContent = 'Play Alex’s Theme';
-  isPlaying = false;
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alex Kralie - RP Reference</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="main-container">
+    <header>
+      <h1 id="charName">Alex Kralie</h1>
+      <button id="theme-toggle" title="Toggle theme">🌙</button>
+    </header>
+    <section class="character-card">
+      <div class="character-image">
+        <img id="profilePic" src="" alt="Profile picture of Alex Kralie">
+      </div>
+      <div class="character-info">
+        <div class="info-row"><span class="label">Age:</span> <span id="charAge"></span></div>
+        <div class="info-row"><span class="label">Pronouns:</span> <span id="charPronouns"></span></div>
+        <div class="info-row"><span class="label">Alignment:</span> <span id="charAlign"></span></div>
+        <div class="info-row"><span class="label">Occupation:</span> <span id="charJob"></span></div>
+        <div class="info-row"><span class="label">Physical Description:</span> <span id="charDesc"></span></div>
+        <div class="info-row"><span class="label">Personality:</span> <span id="charPersonality"></span></div>
+        <div class="info-row"><span class="label">Notable Quote:</span> <span id="charQuote" class="quote"></span></div>
+        <div class="info-row"><span class="label">Fun Fact:</span> <span id="charFact"></span></div>
+        <div class="info-row" id="theme-row">
+          <button id="play-theme">▶ Play Theme Song</button>
+          <audio id="theme-song"></audio>
+        </div>
+      </div>
+    </section>
+    <section class="backstory-section">
+      <h2>Backstory</h2>
+      <div id="charBackstory"></div>
+    </section>
+    <footer>
+      <small>RP Reference Sheet &mdash; Not affiliated with Marble Hornets</small>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

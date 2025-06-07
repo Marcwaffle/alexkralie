@@ -1,45 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Alex Kralie RP Reference Sheet</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <header>
-      <h1 id="charName">Character Name</h1>
-      <button id="theme-toggle">Toggle Theme</button>
-    </header>
-    <main>
-      <section class="character-profile">
-        <img id="profilePic" src="" alt="Profile Picture" class="profile-pic">
-        <div class="profile-details">
-          <p><strong>Age:</strong> <span id="charAge"></span></p>
-          <p><strong>Pronouns:</strong> <span id="charPronouns"></span></p>
-          <p><strong>Alignment:</strong> <span id="charAlign"></span></p>
-          <p><strong>Occupation:</strong> <span id="charJob"></span></p>
-          <p><strong>Physical Description:</strong> <span id="charDesc"></span></p>
-          <p><strong>Personality:</strong> <span id="charPersonality"></span></p>
-          <p><strong>Notable Quote:</strong> <span id="charQuote"></span></p>
-          <p><strong>Fun Fact:</strong> <span id="charFact"></span></p>
-          <button id="play-theme">Play Alex’s Theme</button>
-          <audio id="theme-song"></audio>
-        </div>
-      </section>
-      <section class="backstory-section">
-        <h3>Backstory</h3>
-        <div id="charBackstory"></div>
-      </section>
-      <section class="compendium">
-        <h3>Other Characters</h3>
-        <div class="gallery" id="charCompendium"></div>
-      </section>
-    </main>
-    <footer>
-      <small>RP Reference Sheet | Not affiliated with Marble Hornets</small>
-    </footer>
-  </div>
-  <script src="script.js"></script>
-</body>
-</html>
+// Load character JSON and fill in content
+fetch('alex.json')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('charName').textContent = data.name;
+    document.getElementById('profilePic').src = data.profilePic;
+    document.getElementById('profilePic').alt = `Profile picture of ${data.name}`;
+    document.getElementById('charAge').textContent = data.age;
+    document.getElementById('charPronouns').textContent = data.pronouns;
+    document.getElementById('charAlign').textContent = data.alignment;
+    document.getElementById('charJob').textContent = data.occupation;
+    document.getElementById('charDesc').textContent = data.physicalDescription;
+    document.getElementById('charPersonality').textContent = data.personality;
+    document.getElementById('charQuote').textContent = data.quote;
+    document.getElementById('charFact').textContent = data.funFact;
+    document.getElementById('charBackstory').textContent = data.backstory;
+    document.getElementById('theme-song').src = data.themeSong;
+  });
+
+// Theme toggling
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('light');
+  themeToggle.textContent = document.body.classList.contains('light') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+});
+if (localStorage.getItem('theme') === 'light') {
+  document.body.classList.add('light');
+  themeToggle.textContent = '☀️';
+}
+
+// Play/pause theme song
+let isPlaying = false;
+const playBtn = document.getElementById('play-theme');
+const audio = document.getElementById('theme-song');
+playBtn.addEventListener('click', () => {
+  if (!isPlaying) {
+    audio.play();
+    playBtn.textContent = '⏸ Pause Theme Song';
+  } else {
+    audio.pause();
+    playBtn.textContent = '▶ Play Theme Song';
+  }
+  isPlaying = !isPlaying;
+});
+audio.addEventListener('ended', () => {
+  playBtn.textContent = '▶ Play Theme Song';
+  isPlaying = false;
+});

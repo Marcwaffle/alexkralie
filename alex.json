@@ -1,0 +1,24 @@
+{
+  "name": "Alex Kralie",
+  "age": 22,
+  "pronouns": "he/him",
+  "alignment": "Chaotic Neutral",
+  "occupation": "Film Student, Director",
+  "physicalDescription": "Tall, dark hair, intense stare. Usually seen in casual clothes, sometimes looks tired or agitated.",
+  "personality": "Determined, secretive, quick-tempered, paranoid, resourceful.",
+  "quote": "There's something out there.",
+  "funFact": "Loves old cameras.",
+  "backstory": "Alex started as an ambitious film student, but the events surrounding the Marble Hornets project changed him forever...",
+  "profilePic": "https://static.wikia.nocookie.net/marblehornets/images/9/97/Alex_S3.png",
+  "themeSong": "alex_theme.mp3",
+  "compendium": [
+    {
+      "name": "Jay Merrick",
+      "image": "https://static.wikia.nocookie.net/marblehornets/images/5/5e/Jay_S3.png"
+    },
+    {
+      "name": "Tim Wright",
+      "image": "https://static.wikia.nocookie.net/marblehornets/images/2/28/Tim_S3.png"
+    }
+  ]
+}

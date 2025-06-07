@@ -14,7 +14,12 @@ fetch('alex.json')
     document.getElementById('charQuote').textContent = data.quote;
     document.getElementById('charFact').textContent = data.funFact;
     document.getElementById('charBackstory').textContent = data.backstory;
-    document.getElementById('theme-song').src = data.themeSong;
+
+    // Spotify playlist embed
+    if (data.spotifyPlaylist) {
+      document.getElementById('spotify-embed').innerHTML =
+        `<iframe src="${data.spotifyPlaylist}" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
+    }
   });
 
 // Theme toggling
@@ -28,22 +33,3 @@ if (localStorage.getItem('theme') === 'light') {
   document.body.classList.add('light');
   themeToggle.textContent = '☀️';
 }
-
-// Play/pause theme song
-let isPlaying = false;
-const playBtn = document.getElementById('play-theme');
-const audio = document.getElementById('theme-song');
-playBtn.addEventListener('click', () => {
-  if (!isPlaying) {
-    audio.play();
-    playBtn.textContent = '⏸ Pause Theme Song';
-  } else {
-    audio.pause();
-    playBtn.textContent = '▶ Play Theme Song';
-  }
-  isPlaying = !isPlaying;
-});
-audio.addEventListener('ended', () => {
-  playBtn.textContent = '▶ Play Theme Song';
-  isPlaying = false;
-});

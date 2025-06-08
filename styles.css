@@ -13,6 +13,7 @@
   --border-radius: 18px;
   --font-main: 'Inter', Arial, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --wiki-gap: 2.2rem;
 }
 
 html, body {
@@ -30,7 +31,7 @@ body {
 }
 
 .main-container {
-  max-width: 640px;
+  max-width: 1120px;
   margin: 3rem auto 2rem auto;
   background: transparent;
   box-shadow: none;
@@ -69,6 +70,48 @@ header h1 {
   background: rgba(255,255,255,0.07);
 }
 
+/* Wiki grid layout */
+.wiki-flex-row {
+  display: flex;
+  flex-direction: row;
+  gap: var(--wiki-gap);
+  align-items: flex-start;
+  margin-bottom: var(--wiki-gap);
+}
+
+/* Left column: Backstory */
+.backstory-card {
+  flex: 0 0 320px;
+  max-width: 340px;
+  min-width: 0;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2rem 1.3rem 2.3rem 1.3rem;
+  margin-bottom: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.backstory-card .section-title {
+  margin-top: 0;
+  margin-bottom: 0.8em;
+}
+.backstory-card #charBackstory {
+  white-space: pre-line;
+  margin-top: 0.6rem;
+  font-size: 1.03rem;
+  line-height: 1.7;
+}
+
+/* Right column: Info on top, Playlist below */
+.wiki-flex-col-right {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--wiki-gap);
+}
+
 /* Section Titles */
 .section-title {
   color: var(--accent);
@@ -80,27 +123,22 @@ header h1 {
   display: block;
 }
 
-/* Card Base Styles */
-.character-card,
-.goals-card,
-.playlist-card,
-.backstory-card {
+/* Info Card */
+.character-card {
   background: var(--card-bg);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   padding: 2rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
 }
-
 .character-card-content {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   gap: 2rem;
   align-items: flex-start;
-  flex-direction: row;
 }
-
-/* Character Info Card */
 .character-image img {
   width: 160px;
   height: 210px;
@@ -110,20 +148,17 @@ header h1 {
   box-shadow: 0 1px 10px rgba(0,0,0,0.18);
   background: #222;
 }
-
 .character-info {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-
 .info-row {
   margin-bottom: 0.2rem;
   font-size: 1.10rem;
   line-height: 1.6;
 }
-
 .label {
   color: var(--label);
   font-weight: 600;
@@ -131,7 +166,6 @@ header h1 {
   display: inline-block;
   font-size: 1rem;
 }
-
 .quote {
   color: var(--quote);
   font-family: var(--font-mono);
@@ -141,9 +175,34 @@ header h1 {
   font-style: italic;
 }
 
-/* Goals & Motivation Card */
+/* Playlist Card */
+.playlist-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.playlist-card #spotify-embed {
+  text-align: center;
+  margin-top: 0.8em;
+}
+#spotify-embed iframe {
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.25);
+  min-width: 200px;
+  max-width: 100%;
+}
+
+/* Goals & Motivation Card (full width) */
 .goals-card {
-  /* already styled by .card base */
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
 }
 .goals-subsection {
   margin-bottom: 1.3em;
@@ -164,26 +223,6 @@ header h1 {
 .goals-subsection ul li {
   margin-bottom: 0.4em;
   line-height: 1.5;
-}
-
-/* Playlist Card */
-.playlist-card #spotify-embed {
-  text-align: center;
-  margin-top: 0.8em;
-}
-#spotify-embed iframe {
-  border-radius: 12px;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.25);
-  min-width: 200px;
-  max-width: 100%;
-}
-
-/* Backstory Card */
-.backstory-card #charBackstory {
-  white-space: pre-line;
-  margin-top: 0.6rem;
-  font-size: 1.09rem;
-  line-height: 1.7;
 }
 
 /* Footer */
@@ -214,14 +253,25 @@ body.light .quote { background: rgba(196,106,0,0.10); color: var(--quote);}
 body.light .character-image img { background: #e8e8f4; border: 3px solid var(--accent);}
 
 /* Responsive layout */
-@media (max-width: 800px) {
-  .main-container { margin: 1.3rem 0.5rem; }
-  .character-card, .goals-card, .playlist-card, .backstory-card {
-    padding: 1.2rem 1rem 1.5rem 1rem;
+@media (max-width: 1100px) {
+  .main-container { max-width: 99vw; }
+  .wiki-flex-row { gap: 1.2rem; }
+  .backstory-card { max-width: 280px; flex-basis: 250px; }
+}
+@media (max-width: 870px) {
+  .wiki-flex-row {
+    flex-direction: column;
+    gap: 1.7rem;
   }
-  .character-card-content { gap: 1rem; }
+  .backstory-card, .wiki-flex-col-right {
+    max-width: 100%;
+    width: 100%;
+  }
+  .backstory-card { margin-bottom: 0; }
 }
 @media (max-width: 600px) {
+  .main-container { margin: 1.3rem 0.5rem; }
+  .character-card, .playlist-card, .goals-card, .backstory-card { padding: 1rem; }
   .character-card-content {
     flex-direction: column;
     align-items: center;

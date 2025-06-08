@@ -7,18 +7,24 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="main-container">
+  <div class="wiki-main-container">
     <header>
       <h1 id="charName">Alex Kralie</h1>
       <button id="theme-toggle" title="Toggle theme">🌙</button>
     </header>
 
-    <div class="wiki-flex-row">
-      <section class="backstory-card">
-        <h2 class="section-title">Backstory</h2>
-        <div id="charBackstory"></div>
-      </section>
-      <div class="wiki-flex-col-right">
+    <div class="wiki-content-grid">
+      <div class="wiki-left-col">
+        <section class="backstory-card">
+          <h2 class="section-title">Backstory</h2>
+          <div id="charBackstory"></div>
+        </section>
+        <section class="playlist-card">
+          <h2 class="section-title">Playlist</h2>
+          <div id="spotify-embed"></div>
+        </section>
+      </div>
+      <div class="wiki-right-col">
         <section class="character-card">
           <h2 class="section-title">Info</h2>
           <div class="character-card-content">
@@ -37,24 +43,19 @@
             </div>
           </div>
         </section>
-        <section class="playlist-card">
-          <h2 class="section-title">Playlist</h2>
-          <div id="spotify-embed"></div>
+        <section class="goals-card">
+          <h2 class="section-title">Goals & Motivation</h2>
+          <div class="goals-subsection">
+            <h3>Current Goals</h3>
+            <ul id="currentGoals"></ul>
+          </div>
+          <div class="goals-subsection">
+            <h3>Past Goals</h3>
+            <ul id="pastGoals"></ul>
+          </div>
         </section>
       </div>
     </div>
-
-    <section class="goals-card">
-      <h2 class="section-title">Goals & Motivation</h2>
-      <div class="goals-subsection">
-        <h3>Current Goals</h3>
-        <ul id="currentGoals"></ul>
-      </div>
-      <div class="goals-subsection">
-        <h3>Past Goals</h3>
-        <ul id="pastGoals"></ul>
-      </div>
-    </section>
 
     <footer>
       <small>RP Reference Sheet &mdash; Not affiliated with Marble Hornets</small>

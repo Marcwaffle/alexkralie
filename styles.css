@@ -65,7 +65,7 @@ header h1 {
 /* --- TWO COLUMN LAYOUT --- */
 .wiki-columns {
   display: grid;
-  grid-template-columns: 36% 1fr;
+  grid-template-columns: 1.6fr 36%;
   gap: 2.5rem;
   align-items: flex-start;
   margin-bottom: 2.5rem;

@@ -1,92 +1,188 @@
 body {
-    background: #191919;
-    color: #e7e7e7;
-    font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    background: #141414;
+    color: #e9e9e9;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.01em;
 }
-.wiki-container {
-    max-width: 800px;
-    margin: 40px auto;
-    background: #232323;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-    padding: 32px 24px;
-}
-h1 {
-    text-align: center;
-    margin-bottom: 32px;
-    letter-spacing: 1px;
-}
-.profile-section {
+
+/* Hero Section */
+.wiki-hero {
     display: flex;
-    gap: 32px;
-    align-items: flex-start;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-}
-.profile-pic-wrapper {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 40px;
+    background: linear-gradient(90deg, #232526 0%, #414345 100%);
+    padding: 40px 5vw 20px 5vw;
+    box-shadow: 0 4px 16px rgba(20,20,20,0.4);
 }
-#profile-pic {
-    width: 140px;
-    height: 140px;
+
+.hero-img {
+    width: 180px;
+    height: 180px;
     object-fit: cover;
     border-radius: 50%;
-    border: 3px solid #888;
-    background: #333;
-}
-#pic-upload {
-    margin-top: 10px;
-    color: #fff;
-    background: #444;
-    border: none;
-    padding: 6px 8px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9em;
-}
-.profile-info p {
-    margin: 6px 0;
+    border: 4px solid #f6c177;
+    background: #222;
+    box-shadow: 0 0 30px #111;
 }
 
-.section {
-    margin-bottom: 24px;
+.hero-text {
+    flex: 1;
 }
-.section h2 {
-    margin-bottom: 10px;
+
+.hero-text h1 {
+    font-size: 2.7em;
+    margin: 0 0 10px 0;
     color: #f6c177;
-    font-size: 1.18em;
-    font-weight: bold;
-}
-.section ul {
-    margin: 0;
-    padding-left: 22px;
-}
-.section p,
-.section ul li {
-    font-size: 1em;
-    line-height: 1.5;
+    text-shadow: 1px 1px 4px #000a;
 }
 
-.strengths-weaknesses-container {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
+.hero-text h3 {
+    margin: 0;
+    font-weight: 400;
+    color: #f6c177cc;
+    font-size: 1.1em;
+    letter-spacing: 1.2px;
 }
-@media (max-width: 700px) {
-    .profile-section {
+
+.aliases {
+    margin-top: 12px;
+}
+
+.alias-chip {
+    display: inline-block;
+    background: #353535;
+    color: #f6c177;
+    padding: 4px 12px;
+    border-radius: 18px;
+    margin-right: 8px;
+    font-size: 0.95em;
+    border: 1px solid #f6c17755;
+}
+
+/* Main Wiki Content */
+.wiki-content {
+    max-width: 900px;
+    background: #232323;
+    margin: -30px auto 40px auto;
+    border-radius: 18px;
+    box-shadow: 0 8px 50px #0009;
+    padding: 40px 5vw 32px 5vw;
+    position: relative;
+    z-index: 2;
+}
+
+/* Info Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+    background: #18181c;
+    padding: 18px 12px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px #0006;
+}
+.info-grid div {
+    margin: 0 0 2px 0;
+}
+
+/* Section Headings */
+.wiki-content h2 {
+    color: #f6c177;
+    margin-top: 36px;
+    margin-bottom: 8px;
+    font-size: 1.32em;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.credit {
+    font-size: 0.7em;
+    color: #aaa;
+    margin-left: 7px;
+}
+
+/* Personality dropcap */
+.dropcap {
+    float: left;
+    font-size: 2.5em;
+    color: #f6c177;
+    font-weight: 700;
+    margin-right: 10px;
+    line-height: 1;
+}
+
+.appearance-flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+}
+
+.appearance-flex img {
+    width: 90px;
+    border-radius: 10px;
+}
+
+/* Split Section (Abilities, Strengths, Weaknesses) */
+.split-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 18px;
+}
+.split-section > div {
+    flex: 1;
+    background: #18181c;
+    border-radius: 10px;
+    box-shadow: 0 1px 7px #0005;
+    padding: 14px 20px 10px 18px;
+    min-width: 220px;
+}
+
+ul {
+    margin: 0 0 0 20px;
+    padding: 0;
+}
+
+.rp-sample {
+    background: #19191c;
+    border-left: 5px solid #f6c177;
+    margin: 18px 0;
+    padding: 18px 22px;
+    font-style: italic;
+    color: #e4dacd;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 2px 6px #0005;
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+    .wiki-hero {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        gap: 18px;
+        padding: 28px 4vw 18px 4vw;
     }
-    .strengths-weaknesses-container {
+    .hero-img {
+        margin-bottom: 8px;
+    }
+    .wiki-content {
+        padding: 22px 2vw 22px 2vw;
+    }
+    .split-section {
         flex-direction: column;
-        gap: 0;
+        gap: 12px;
     }
-    .wiki-container {
-        padding: 16px 4vw;
+}
+
+@media (max-width: 500px) {
+    .wiki-content {
+        padding: 8px 0 10px 0;
+    }
+    .info-grid {
+        grid-template-columns: 1fr;
+        padding: 8px 2vw;
     }
 }

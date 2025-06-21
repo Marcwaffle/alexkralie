@@ -1,67 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Alex Kralie - RP Reference</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Alex Kralie - Character Wiki</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="wiki-main-container">
-    <header>
-      <h1 id="charName">Alex Kralie</h1>
-      <button id="theme-toggle" title="Toggle theme">🌙</button>
-    </header>
-
-    <div class="wiki-columns">
-      <!-- Swapped: Right col first, then left col -->
-      <main class="wiki-right">
-        <section class="character-card">
-          <h2 class="section-title">Info</h2>
-          <div class="character-card-content">
-            <div class="character-image">
-              <img id="profilePic" src="" alt="Profile picture of Alex Kralie">
+    <div class="wiki-container">
+        <h1>Character Wiki: Alex Kralie</h1>
+        <div class="profile-section">
+            <div class="profile-pic-wrapper">
+                <img id="profile-pic" src="default-profile.png" alt="Profile Picture">
+                <input type="file" id="pic-upload" accept="image/*">
             </div>
-            <div class="character-info">
-              <div class="info-row"><span class="label">Age:</span> <span id="charAge"></span></div>
-              <div class="info-row"><span class="label">Pronouns:</span> <span id="charPronouns"></span></div>
-              <div class="info-row"><span class="label">Alignment:</span> <span id="charAlign"></span></div>
-              <div class="info-row"><span class="label">Occupation:</span> <span id="charJob"></span></div>
-              <div class="info-row"><span class="label">Physical Description:</span> <span id="charDesc"></span></div>
-              <div class="info-row"><span class="label">Personality:</span> <span id="charPersonality"></span></div>
-              <div class="info-row"><span class="label">Notable Quote:</span> <span id="charQuote" class="quote"></span></div>
-              <div class="info-row"><span class="label">Fun Fact:</span> <span id="charFact"></span></div>
+            <div class="profile-info">
+                <p><strong>Name:</strong> <span id="name">Alex Kralie</span></p>
+                <p><strong>Aliases/Nicknames:</strong> <span id="aliases">None widely known</span></p>
+                <p><strong>Age:</strong> <span id="age">Early-to-mid 20s (as of Marble Hornets events)</span></p>
+                <p><strong>Gender + Pronouns:</strong> <span id="gender">Male (he/him)</span></p>
+                <p><strong>Sexuality / Species:</strong> <span id="sexuality">Unconfirmed / Human</span></p>
+                <p><strong>Place of Residence:</strong> <span id="residence">Alabama, United States</span></p>
+                <p><strong>Occupation:</strong> <span id="occupation">Film Student / Director</span></p>
+                <p><strong>Alliance:</strong> <span id="alliance">Formerly Marble Hornets film crew</span></p>
             </div>
-          </div>
-        </section>
-        <section class="goals-card">
-          <h2 class="section-title">Goals & Motivation</h2>
-          <div class="goals-subsection">
-            <h3>Current Goals</h3>
-            <ul id="currentGoals"></ul>
-          </div>
-          <div class="goals-subsection">
-            <h3>Past Goals</h3>
-            <ul id="pastGoals"></ul>
-          </div>
-        </section>
-      </main>
-      <aside class="wiki-left">
-        <section class="backstory-card">
-          <h2 class="section-title">Backstory</h2>
-          <div id="charBackstory"></div>
-        </section>
-        <section class="playlist-card">
-          <h2 class="section-title">Playlist</h2>
-          <div id="spotify-embed"></div>
-        </section>
-      </aside>
+        </div>
+        <div class="section">
+            <h2>Personality</h2>
+            <p>
+                Alex is intensely driven and determined, often showing a single-minded dedication to his projects, particularly his film. He can be secretive and manipulative, sometimes coming off as abrasive or cold to those around him. Despite these flaws, he occasionally displays vulnerability, suggesting a more complex internal struggle beneath his stern exterior.
+            </p>
+        </div>
+        <div class="section">
+            <h2>Backstory</h2>
+            <p>
+                Alex Kralie was a film student who began work on a student project titled "Marble Hornets" with a group of friends and classmates. Over time, he became increasingly paranoid and secretive, especially after experiencing unsettling phenomena and sightings of the Operator, a mysterious and supernatural entity. Alex's obsession with filming and documenting strange events led to the breakdown of his relationships and growing distrust among the crew. His choices, often made in desperation or fear, set off a chain of events that would haunt him and those involved for years.
+            </p>
+        </div>
+        <div class="section">
+            <h2>Appearance <small>(credit: Troy Wagner & Joseph DeLage, creators of Marble Hornets)</small></h2>
+            <p>
+                Alex is an average-height young man with short brown hair and a generally casual style, often seen wearing T-shirts, jeans, and a hoodie. His appearance can become increasingly disheveled as his situation deteriorates, reflecting his mental and emotional state.
+            </p>
+        </div>
+        <div class="section">
+            <h2>Abilities + Weapon Preferences</h2>
+            <ul>
+                <li>Resourceful and quick-thinking in stressful situations</li>
+                <li>Proficient with handheld cameras and video equipment</li>
+                <li>Weapon preference: Firearms (notably a handgun), though also uses blunt objects when necessary</li>
+            </ul>
+        </div>
+        <div class="strengths-weaknesses-container">
+            <div class="section">
+                <h2>Strengths</h2>
+                <ul>
+                    <li>Determined and persistent</li>
+                    <li>Strategic thinker</li>
+                    <li>Physically resilient</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h2>Weaknesses</h2>
+                <ul>
+                    <li>Paranoid and distrusting</li>
+                    <li>Quick to anger; impulsive</li>
+                    <li>Difficulty accepting help from others</li>
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Headcanons</h2>
+            <ul>
+                <li>Alex occasionally kept a private video diary beyond the Marble Hornets tapes.</li>
+                <li>He has a fondness for classic horror films, influencing his directorial style.</li>
+                <li>Alex’s paranoia started before encountering the Operator, possibly due to past trauma.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>RP Sample</h2>
+            <p>
+                The camera’s red light blinked in the dimly lit room, illuminating Alex’s tense expression as he glanced nervously toward the window. Every shadow seemed to flicker with possibility, every creak in the floorboards sent his heart racing. He clutched the camera tighter, willing himself to stay focused — there had to be a reason for the strange occurrences, a pattern he could find if only he looked hard enough. “If you’re out there, I’m not afraid of you,” he lied, voice trembling just enough to betray his fear. He scanned the footage from earlier, eyes darting between frames, searching for that telltale distortion that haunted his every waking moment. As the night wore on, exhaustion tugged at his eyelids, but he refused to sleep. If he slept, he might miss something. And in his world, missing something could mean the difference between survival and vanishing without a trace.
+            </p>
+        </div>
     </div>
-
-    <footer>
-      <small>RP Reference Sheet &mdash; Not affiliated with Marble Hornets</small>
-    </footer>
-  </div>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
